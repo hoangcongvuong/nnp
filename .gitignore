@@ -217,3 +217,4 @@ pip-log.txt
 _notes/
 data/cache/*
 data/uploads/*
+config.php
