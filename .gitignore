@@ -215,6 +215,5 @@ pip-log.txt
 .mr.developer.cfg
 
 _notes/
-data/cache/*
-data/uploads/*
+
 config.php
