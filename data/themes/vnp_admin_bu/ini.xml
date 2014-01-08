@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<theme>
+	<info>
+		<name>VNP</name>
+		<author>Nguyen Ngoc Phuong</author>
+		<authorurl>http://vietmoz.net</authorurl>
+		<themeurl>http://vietmoz.net</themeurl>
+	</info>
+	<layout>
+		<name>Body Right</name>
+		<file>body.right.tpl</file>
+		<block>header,menu,left,ads,body,footer</block>
+	</layout>
+	<layout>
+		<name>Left Body</name>
+		<file>left.body.tpl</file>
+		<block>header,menu,left,ads,body,footer</block>
+	</layout>
+	
+	<blockfile>
+		<name>Left Menu</name>
+		<file>left_menu.php</file>
+		<function>leftMenu</function>
+		<layout>all</layout>
+		<active>1</active>
+		<area>left</area>
+		<order>0</order>
+	</blockfile>
+	
+	<blockfile>
+		<name>Html Menu</name>
+		<file>html.php</file>
+		<function>html</function>
+		<layout>all</layout>
+		<active>1</active>
+		<area>left</area>
+		<order>1</order>
+	</blockfile>
+</theme>

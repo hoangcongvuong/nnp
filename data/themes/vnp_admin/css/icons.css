@@ -1,0 +1,118 @@
+.arrow-down:after {
+	content: "\e055"
+}
+.arrow-left:before {
+	content: "\e058"
+}
+.arrow-right:before {
+	content: "\e057"
+}
+.btn-delete i:before {
+	content: "\e008"
+}
+.btn-move i:before {
+	content: "\e00b"
+}
+.btn-spam i:before {
+	content: "\e009"
+}
+.btn-not-spam i:before {
+	content: "\e00a"
+}
+.btn-forward i:before {
+	content: "\e048"
+}
+.btn-edit-draft i:before {
+	content: "\e006"
+}
+.icon-drafts:before {
+	content: "\e03d"
+}
+.btn-cancel-compose i:before {
+	content: "\e016"
+}
+.btn-prev-msg i:before {
+	content: "\e021"
+}
+.btn-next-msg i:before {
+	content: "\e022"
+}
+.btn-close-msg i:before {
+	content: "\e016"
+}
+.thread-cards-collapsed i:before {
+	content: "\e020"
+}
+.thread-cards-expanded i:before {
+	content: "\e01f"
+}
+.cbox input+span:before {
+	content: "\e01a"
+}
+.cbox input:checked+span:before {
+	content: "\e019"
+}
+.rbtn input+span:before {
+	content: "\e01d"
+}
+.rbtn input:checked+span:before {
+	content: "\e01c"
+}
+.expanded .arrow:before {
+	content: "\e055"
+}
+
+
+
+
+
+
+
+
+
+
+.icon-recent:before {
+content: "\e603";
+}
+.btn-inbox>i:before {
+	content: "\e000"
+}
+.btn-compose>i:before {
+	content: "\e010"
+}
+.btn-drafts>i:before {
+	content: "\e006"
+}
+.btn-sent>i:before {
+	content: "\e007"
+}
+.btn-trash>i:before {
+	content: "\e008"
+}
+.btn-spam>i:before {
+	content: "\e009"
+}
+.btn-folders>i:before {
+	content: "\e00c"
+}
+.btn-contacts>i:before {
+	content: "\e002"
+}
+.btn-calendar>i:before {
+	content: "\e003"
+}
+.btn-notepad>i:before {
+	content: "\e004"
+}
+.btn-messenger>i:before {
+	content: "\e001"
+}
+.btn-settings>i:before {
+	content: "\e005"
+}
+.btn-feedback>i:before {
+	content: "\e04e"
+}
+.btn-mobilizer>i:before {
+	content: "\e602"
+}

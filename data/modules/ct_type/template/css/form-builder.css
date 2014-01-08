@@ -1,0 +1,155 @@
+.vnp-form-field-type {filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66CBE573, endColorstr=#66CBE573);
+	position: relative;
+	display: block;
+	margin-right: 8px;
+	padding: 4px 0 4px 34px;
+	border: 1px solid rgba(0, 0, 0, 0.54);  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66CBE573, endColorstr=#66CBE573);
+	text-align: left;
+	text-decoration: none
+;  background: rgba(23, 26, 13, 0.5);
+	color: #e1ff80 !important;
+}
+.rtl .vnp-form-field-type {
+	margin-right: 0;
+	margin-left: 8px;
+	padding: 4px 34px 4px 10px
+}
+.vnp-form-field-type:hover {
+	border-color: #e1ff80;
+}
+.vnp-form-field-type b {
+	position: absolute;
+	left: 8px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-color: transparent;
+	background-image: url('../images/vnp-form-items.png');
+	background-repeat: no-repeat;
+	line-height: 16px
+}
+.rtl .vnp-form-field-type b {
+	left: auto;
+	right: 8px
+}
+#field-type-address b {
+	background-position: -128px 0
+}
+#field-type-autocomplete b, #field-type-referer b {
+	background-position: -384px 0
+}
+#field-type-checkbox b {
+	background-position: -672px 0
+}
+#field-type-color b {
+	background-position: 0 0
+}
+#field-type-currency b {
+	background-position: -64px 0
+}
+#field-type-datepicker b {
+	background-position: -224px 0
+}
+#field-type-digits b, #field-type-number b {
+	background-position: -832px 0
+}
+#field-type-email b {
+	background-position: -160px 0
+}
+#field-type-file b {
+	background-position: -512px 0
+}
+#field-type-hidden b {
+	background-position: -544px 0
+}
+#field-type-html b {
+	background-position: -800px 0
+}
+#field-type-instructions b {
+	background-position: -256px 0
+}
+#field-type-ip b {
+	background-position: -448px 0
+}
+#field-type-max b {
+	background-position: -576px 0
+}
+#field-type-min b {
+	background-position: -608px 0
+}
+#field-type-name b {
+	background-position: -320px 0
+}
+#field-type-pagebreak b {
+	background-position: -768px 0
+}
+#field-type-password b {
+	background-position: -352px 0
+}
+#field-type-phone b {
+	background-position: -96px 0
+}
+#field-type-radio b {
+	background-position: -704px 0
+}
+#field-type-range b {
+	background-position: -640px 0
+}
+#field-type-select b {
+	background-position: -416px 0
+}
+#field-type-text b {
+	background-position: -736px 0
+}
+#field-type-textarea b {
+	background-position: -32px 0
+}
+#field-type-time b {
+	background-position: -192px 0
+}
+#field-type-username b {
+	background-position: -288px 0
+}
+#field-type-url b {
+	background-position: -480px 0
+}
+.static-vars-inactive {
+	display: none
+}
+.static-vars-active {
+	display: block
+}
+.vnp-button {
+	position: relative;
+	display: inline-block;
+	overflow: visible;
+	margin: 0;
+	padding: .5em 2.5em .5em 1em;
+	outline: 0;
+	border: 1px solid #d4d4d4;
+	border-radius: .2em;
+	background-color: #f5f5f5;
+	color: #333;
+	text-decoration: none;
+	white-space: nowrap;
+	font: 12px/normal sans-serif;
+	cursor: pointer;
+	zoom: 1;
+	-webkit-background-clip: padding;
+	-moz-background-clip: padding;
+	-o-background-clip: padding-box;
+*display:inline
+}
+.vnp-button:hover, .vnp-button:active, .vnp-button.current {
+	border-color: #929292;
+	border-bottom-color: #929292;
+	background-color: #eee;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eee), to(#ccc));
+	background-image: -moz-linear-gradient(#eee, #ccc);
+	background-image: -o-linear-gradient(#eee, #ccc);
+	background-image: linear-gradient(#eee, #ccc);
+	color: #000
+}
+.vnp-button.current {
+	font-weight: bold
+}

@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^([^/]*)\.html$ /nnp/index.php?p=$1 [L]
+RewriteRule ^([^/]*)/page/([^/]*)\.html$ /nnp/index.php?p=$1&page=$2 [L]
+RewriteRule ^page/([^/]*)\.html$ /nnp/?page=$1 [L]
+RewriteRule ^module/([^/]*)/([^/]*)\.html$ /nnp/index.php?module=$1&op=$2 [L]
+RewriteRule ^module/([^/]*)/([^/]*)/([^/]*)\.html$ /nnp/index.php?module=$1&op=$2&ajax=$3 [L]

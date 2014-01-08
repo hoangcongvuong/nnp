@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sites>
+  <config name="site_name">Nguyễn Ngọc Phương</config>
+  <config name="email">nguyenngocphuongnb@gmail.com</config>
+  <config name="site_image"></config>
+  <config name="site_description">Nguyễn Ngọc Phương's Blog</config>
+  <config name="rewrite">1</config>
+  <config name="default_theme">vnp</config>
+  <config name="default_layout">body.right.tpl</config>
+  <config name="default_editor">tinymce</config>
+  <config name="default_admin_theme">vnp_admin</config>
+  <config name="default_admin_layout">left.body.tpl</config>
+  <config name="site_ajax"></config>
+  <config name="admin_ajax"></config>
+  <config name="site_cache">3</config>
+  <config name="admin_cache">3</config>
+  <config name="db_cache">1</config>
+</sites>
