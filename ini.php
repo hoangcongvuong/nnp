@@ -62,4 +62,6 @@ define('DB_CACHE_DIR', VNP_ROOT . DATA_DIR . '/cache/db/' );
 define('HTML_CACHE_DIR', VNP_ROOT . DATA_DIR . '/cache/template/' );
 define('XML_CONFIG_FILE', VNP_ROOT . DATA_DIR . '/site_config.xml' );
 
+//alalalalalal
+
 ?>
