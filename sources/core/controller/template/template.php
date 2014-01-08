@@ -231,7 +231,8 @@ class template
 		}
 		elseif($ajaxMod == 'string')
 		{
-			$return = $this->get_body_content();
+			$return = $hook;
+			$return .= $this->get_body_content();
 		}
 		echo $return;
 		exit();

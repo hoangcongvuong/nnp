@@ -26,7 +26,7 @@ class pages
 		$page_type = $r->get('page_type');
 		if( empty($page_type) )
 		{
-			$addTypeUrls = array(	'dynamic'	=>	$r->currentUrl . '&page_type=dynamic',
+			$addTypeUrls = array(	'dynamic'	=>	$r->currentUrl . '&page_type=dynamic&content=single',
 									'static'	=>	$r->currentUrl . '&page_type=static'
 								);
 			$tpl->assign('PAGE_TYPE', $addTypeUrls );
@@ -51,18 +51,15 @@ class pages
 	{
 		global $template;
 		
-		$template->cssHeader(MODULE_DIR . 'ct_type/css/modal.css', 'file');
-		$template->jsHeader(MODULE_DIR . 'ct_type/js/modal.js', 'file');
+		//$template->cssHeader(MODULE_DIR . 'ct_type/css/modal.css', 'file');
+		//$template->jsHeader(MODULE_DIR . 'ct_type/js/modal.js', 'file');
 		if( $page_type == 'static' ) return $this->staticPageTemplate();
 		elseif( $page_type == 'dynamic' ) return $this->dynamicPageTemplate();
 	}
 	
 	private function dynamicPageTemplate()
 	{
-		global $template;		
-		
-		$template->currentBlockTemplatePath = MODULE_PATH . 'ct_type/';
-		$ctType = new ct_type();
+		global $template, $global, $r;
 		
 		/*$db->where['config_name'] = 'config_fields';
 		$configFields = $db->get('global_config', 'config_name')->result['config_fields']['config_value'];
@@ -73,23 +70,57 @@ class pages
 			$configFields[$fieldKey] = array_merge($configFields[$fieldKey], decodeArray($_cfField['ct_field_data']) );
 		}*/
 		
-		$configFields = array();
+		$template->jsHeader(MODULE_DIR . 'pages/template/js/page_content.js', 'file');
 		
-		$add_field_setting = array(
-					'label'					=> 'Page fields',
-					'save_field_submit_url'	=> BASE_DIR . 'admin.php?module=setting&op=add_config_field&ajax=state-main',
-					'add_field_post_url'	=> '/admin.php?ajax=string&module=setting&op=field_builder&field_type=',
-					'sort_field_post_url'	=> '/admin.php?ajax=string&module=setting&op=sort_field&ct_type_id=',
-					'remove_field_url'		=> '/admin.php?ajax=string&module=setting&op=remove_field',
-					'form_action'			=> BASE_DIR . 'admin.php?module=setting&op=add_config_field'
-				);
-		$_addPageFields = $ctType->add_ct_field_template(NULL, $add_field_setting, $configFields, true);
+		$currentPageContentType = $r->get('content');
 		
-		$template->currentBlockTemplatePath = MODULE_PATH . 'pages/';
+		if( $currentPageContentType == 'single' )
+		{
+			$_pageAttrs = array(	'label'	=> 'Single content page',
+									'class'	=> array('single' => 'btn-danger', 'list' => '' )
+									);
+		}
+		else
+		{
+			$_pageAttrs = array(	'label'	=> 'List content page',
+									'class'	=> array('single' => '', 'list' => 'btn-danger' )
+									);
+		}
+		
 		$tpl = $template->file('template/dynamic_page.tpl');
-		$tpl->assign('ADD_PAGE_FIELD', $_addPageFields);
+		
+		foreach( $global['ct_types'] as  $_ct_Type )
+		{
+			$tpl->assign('CT_TYPE', $_ct_Type);
+			$tpl->parse('main.ct_type');
+		}
+		
+		$pageContentType = 
+			array(	'single'	=>	BASE_DIR . 'admin.php?module=pages&op=add_page&page_type=dynamic&content=single',
+					'list'		=>	BASE_DIR . 'admin.php?module=pages&op=add_page&page_type=dynamic&content=list'
+				);
+								
+		$tpl->assign('PAGE_LINK', $pageContentType);
+		$tpl->assign('PAGE_ATTRIBUTE', $_pageAttrs);
+		
 		$tpl->parse('main');
 		return $tpl->text('main');
+	}
+	
+	public function get_content_type_field()
+	{
+		global $r, $db, $global;
+		
+		$content = $r->get('content', 'single');
+		$ct_type_id = $r->get('ct_type_id', 0);
+		
+		if( array_key_exists($ct_type_id, $global['ct_types']) )
+		{
+			$db->where['ct_field_id'] = $ct_type_id;
+			$ctFields = $db->get('ct_fields', 'ct_field_id' )->result;
+			$return = array( 'status' => 'ok', 'fields' => $ctFields );
+		}
+		else $return = array( 'status' => 'not', 'fields' => 'Invalid content type' );
 	}
 	
 	private function is_edit_page()

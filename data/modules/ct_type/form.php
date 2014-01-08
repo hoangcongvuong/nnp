@@ -35,9 +35,10 @@ class form
 		$this->formAttributes = $formAttributes;
 	}
 	
-	
-	public function addField($fieldData = array())
+	public function fieldBuilder($fieldData = array())
 	{
+		global $template;
+		
 		$field_data = array(
 							'field_name'	=> '',
 							'default_value'	=> '',
@@ -120,6 +121,10 @@ class form
 		}
 		elseif( $fieldData['field_type'] == 'image' )
 		{
+			$template->cssHeader(MODULE_DIR . 'ct_type/css/modal.css', 'file');
+			$template->jsHeader(MODULE_DIR . 'ct_type/js/modal.js', 'file');
+			$template->jsHeader(MODULE_DIR . 'ct_type/js/form_data.js', 'file');
+			
 			$previewImg = empty($fieldData['default_value']) ? '' : '<img src="' . BASE_DIR . DATA_DIR . '/timthumb.php?src=' . $fieldData['default_value'] . '&w=80&h=80" height="80" width="80" />';
 			$this->imageTemplate	= 
 			'<input class="vnp-input %s" type="text" name="contentField[%s]" id="%s" value="%s" %s />
@@ -257,6 +262,7 @@ class form
 						<input name="contentField[' . $fieldData['field_name'] . ']" type="' . $fieldData['field_type'] . '" value="' . $_option['value'] . '" ' . $checked . '>
 						&nbsp;' . $_option['title'] . '&nbsp;&nbsp;&nbsp;&nbsp;
 						</label>';
+
 				}
 			}
 			
@@ -310,7 +316,12 @@ class form
 			$_ip = '';
 		}
 		
-		$this->fielData[$fieldData['field_name']] = sprintf($this->setting['fieldTemplate'], $fieldID, $_ip);
+		return sprintf($this->setting['fieldTemplate'], $fieldID, $_ip);
+	}
+	
+	public function addField($fieldData = array())
+	{
+		$this->fielData[$fieldData['field_name']] = $this->fieldBuilder($fieldData);
 	}
 	
 	public function addTag($type)
@@ -344,10 +355,6 @@ class form
 			$jsContent = "var options = {beforeSubmit:showLoading,success:ajax_state_handler,dataType:  'json',url: $('form[name=\"" . $this->formName . "\"]').attr('action') + '&ajax=state-main'};$('form[name=\"" . $this->formName . "\"]').ajaxForm(options);";
 			$template->jsHeader($jsContent);
 		}
-		
-		$template->cssHeader(MODULE_DIR . 'ct_type/css/modal.css', 'file');
-		$template->jsHeader(MODULE_DIR . 'ct_type/js/modal.js', 'file');
-		$template->jsHeader(MODULE_DIR . 'ct_type/js/form_data.js', 'file');
 		
 		if(!$this->onlyField)
 		{

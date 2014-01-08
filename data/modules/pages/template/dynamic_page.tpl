@@ -1,23 +1,35 @@
 <!-- BEGIN: main -->
 <div class="choose-page-featured">
-    <button data-toggle="modal" data-backdrop="static" data-target="#fieldsList" id="browse-button-%s" class="btn btn-primary browse-file" refererfield="%s">Data fields</button> 
-    <button data-toggle="modal" data-backdrop="static" data-target="#listContent" id="browse-button-%s" class="btn btn-primary browse-file" refererfield="%s">List content</button>
+    <a href="{PAGE_LINK.single}" class="btn btn-primary {PAGE_ATTRIBUTE.class.single}">Single content</a>
+    <a href="{PAGE_LINK.list}" class="btn btn-primary {PAGE_ATTRIBUTE.class.list}">List content</a>
 </div>
 <div class="page-fatured-container">
-	{ADD_PAGE_FIELD}
-</div>
-
-<div class="modal fade" id="fieldsList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width: 800px">
-        <div class="modal-content" style="width:100%">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Choose page field</h4>
-            </div>
-            <div class="modal-body clearfix">
-                {ADD_PAGE_FIELD}
-            </div>
-        </div>
+	<div class="vnp-box vnp-ct-field-type">
+    	<ul class="vnp-fields" id="vnp-page-builder">
+            <!-- BEGIN: ct_type -->
+            <li><a href="#" class="vnp-form-field-type content-type" id="ct_type-{CT_TYPE.ct_type_id}">{CT_TYPE.ct_type_title}</a></li>
+            <!-- END: ct_type -->
+       	</ul>
+    </div>
+    <div class="vnp-box w400 ctfield-ctner">
+        <h1>{PAGE_ATTRIBUTE.label}</h1>
     </div>
 </div>
+<style type="text/css">
+.vnp-form-field-type {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66CBE573, endColorstr=#66CBE573);
+	position: relative;
+	display: block;
+	margin-right: 8px;
+	padding: 4px 10px;
+	border: 1px solid rgba(0, 0, 0, 0.54);  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66CBE573, endColorstr=#66CBE573);
+	text-align: left;
+	text-decoration: none;
+	background: rgba(23, 26, 13, 0.5);
+	color: #e1ff80 !important;
+}
+.vnp-form-field-type:hover {
+	border-color: #e1ff80;
+}
+</style>
 <!-- END: main -->

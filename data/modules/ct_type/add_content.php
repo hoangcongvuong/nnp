@@ -64,10 +64,10 @@ if( $ct_type_id > 0 )
 		{
 			foreach( $ct_fields as $ct_field )
 			{
-				//$fieldData = $ct_field['ct_field_data'];
-				//$ct_field = array_merge($fieldData, $ct_field);
+				$fieldData = decodeArray($ct_field['ct_field_data']);
+				$ct_field = array_merge($fieldData, $ct_field);
 				
-				//unset($ct_field['ct_field_data']);
+				unset($ct_field['ct_field_data']);
 				if( !isset($ct_field['default_value']) ) $ct_field['default_value'] = '';
 				//$template->body_data .= p($ct_field);
 				
